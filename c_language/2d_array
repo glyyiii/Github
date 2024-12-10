@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Function prototypes
+int getRows();                    // Get the number of rows for the 2D array
+int getCols();                    // Get the number of columns for the 2D array
+void getElements(int arr[][10], int rows, int cols);  // Populate the array with user input
+void displayArray(int arr[][10], int rows, int cols); // Display the array
+
+int main() {
+    int rows, cols;
+
+    rows = getRows();            // Get the number of rows from user input
+    cols = getCols();            // Get the number of columns from user input
+
+    int arr[rows][cols];         // Declare a 2D array with the obtained dimensions
+    getElements(arr, rows, cols);  // Populate the array with user input
+    displayArray(arr, rows, cols); // Display the array
+
+    return 0;
+}
+
+// Get the number of rows for the 2D array
+int getRows() {
+    int rows;
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+    return rows;
+}
+
+// Get the number of columns for the 2D array
+int getCols() {
+    int cols;
+    printf("Enter the number of columns: ");
+    scanf("%d", &cols);
+    return cols;
+}
+
+// Populate the 2D array with user input
+void getElements(int arr[][10], int rows, int cols) {
+    printf("Enter elements of the 2D array:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("Element at [%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+}
+
+// Display the 2D array
+void displayArray(int arr[][10], int rows, int cols) {
+    printf("The 2D Array is:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
